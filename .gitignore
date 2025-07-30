@@ -1,6 +1,7 @@
 venv/
 output/
 input/
+models/
 __pycache__/
 .vscode/
 README_zh_Hans.md
@@ -8,3 +9,4 @@ requirements_inference.txt
 requirements_training.txt
 set_1.py
 refer.txt
+src_model/

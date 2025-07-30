@@ -1,8 +1,12 @@
+from src_model.model import MattingNetwork
 from inference import convert_video
 import torch
 import glob
 import os
 import shutil
+
+model = MattingNetwork(variant='mobilenetv3').cuda()
+model.load_state_dict(torch.load("models/rvm_mobilenetv3.pth"))
 
 for movie in glob.glob("input/*.mp4"):
     basename = os.path.splitext(os.path.basename(movie))[0]
@@ -11,7 +15,7 @@ for movie in glob.glob("input/*.mp4"):
         os.mkdir(os.path.join("output", basename))
     shutil.copy(movie, os.path.join("output", basename, basename_ex))
     convert_video(
-        model = torch.hub.load("PeterL1n/RobustVideoMatting", "mobilenetv3").cuda(),
+        model = model,
         input_source=movie,
         output_type='video',
         output_composition=os.path.join("output", basename, "com.mp4"),
