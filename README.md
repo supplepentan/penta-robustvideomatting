@@ -50,10 +50,21 @@
     -   For example, `input/example.mp4`.
 
 6.  **Run the application**
+    
+    There are two ways to run the application:
+    
+    **A) Command-line interface**
     ```
     venv\Scripts\python.exe run.py
     ```
     -   Processed videos will be saved in the `output` folder.
+
+    **B) Web UI (Gradio)**
+    ```
+    venv\Scripts\python.exe app.py
+    ```
+    -   This will launch a web interface. Open the URL displayed in the console in your browser.
+    -   Upload a video and the processed videos will be available for download.
 
 # Original
 
